@@ -63,9 +63,11 @@ const colors = {
 }
 
 module.exports = {
-  purge: ['./**/*.{css,pcss}', './{pages,components,www}/**/*.{js,ts,jsx,tsx}'],
-  darkMode: false,
   mode: 'jit',
+  purge: [
+    './{pages,lib,components,www,styles}/**/*.{html,js,ts,jsx,tsx,css,pcss}'
+  ],
+  darkMode: false,
   theme: {
     extend: {
       'animation': {

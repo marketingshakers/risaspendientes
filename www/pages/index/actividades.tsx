@@ -11,7 +11,7 @@ const Actividades = (data: ActividadesProps) => (
       oneWay
     >
       <h2
-        className="font-title font-bold text-center text-rp-yellow-500 text-5xl"
+        className="font-title font-bold text-center text-rp-yellow-500 text-3xl sm:text-5xl"
       >
         Nuestras actividades
        </h2>

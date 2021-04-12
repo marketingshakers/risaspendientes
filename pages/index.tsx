@@ -7,10 +7,19 @@ query HomeQuery {
     title
     description
     image {
-      ${responsiveImageHelper({w: 500, h: 500, fit: 'crop'})}
+      ${responsiveImageHelper({
+        w: 500,
+        h: 500,
+        fit: 'crop',
+        q: 70,
+      })}
     }
     imageHd: image {
       ${responsiveImageHelper()}
+    }
+    specifications {
+      icon
+      text
     }
   }
 }

@@ -38,7 +38,7 @@ const Hero = () => (
         >
           <Image
             src="/images/hero.png"
-            alt=""
+            alt="Risas pendientes"
             width={1026}
             height={728}
             layout="intrinsic"

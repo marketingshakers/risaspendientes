@@ -22,6 +22,7 @@
 	height: 100%;
 	padding: 6rem 2rem 0;
 	text-align: right;
+	@apply text-rp-gray-500;
 }
 
 @screen lg {
@@ -41,8 +42,8 @@
 	cursor: pointer;
 	overflow: hidden;
 
-	--border: transparent;
-	border-bottom: 2px solid var(--border);
+	@apply border-b-2;
+	@apply border-transparent;
 	transition: border-color 0.1s;
 	@apply text-2xl;
 }
@@ -83,7 +84,7 @@
 }
 
 .sidebarLink:hover, .childLink:hover {
-	--border: black;
+	@apply border-rp-gray-500;
 }
 
 .backButton {

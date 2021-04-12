@@ -33,16 +33,19 @@ export async function getGlobalData({ preview = false }: { preview?: boolean } =
 export const responsiveImageHelper = (params?: {
   w?: number
   h?: number
+  q?: number
   fit?: string
 }) => {
-  const { w, h, fit } = params || {
+  const { w, h, q, fit } = params || {
     w: null,
     h: null,
+    q: null,
     fit: null,
   }
   return `responsiveImage(imgixParams: {
     ${w ? `w: ${w},` : ''}
     ${h ? `h: ${h},` : ''}
+    ${q ? `q: ${q},` : ''}
     ${fit ? `fit: ${fit},` : ''}
     auto: format
   }) {
