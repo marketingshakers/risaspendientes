@@ -1,0 +1,49 @@
+.content, .content-lg {
+	@apply px-6;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@screen lg {
+	.content {
+		width: 80%;
+	}
+	.content-lg {
+		width: 90%;
+	}
+}
+
+.input {
+	@apply p-2;
+	@apply border-b;
+	@apply border-gray-400;
+	@apply bg-transparent;
+}
+
+.input:focus {
+	outline: none;
+	@apply border-white;
+	@apply text-white;
+}
+
+.t-p {
+	font-size:  1rem;
+}
+
+.t-h1, .t-h2, .t-h3 {
+	@apply leading-none;
+	font-weight: bold;
+}
+
+.t-h1 {
+	font-size: 2.5rem;
+}
+
+.t-h2 {
+	font-size: 2rem;
+}
+
+.t-h3 {
+	font-size: 1.33rem;
+}

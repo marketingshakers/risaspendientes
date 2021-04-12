@@ -1,0 +1,69 @@
+.madeBy {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	@apply mt-12;
+}
+
+.madeBy :global(p) {
+	width: 100%;
+	@apply pb-6;
+	@apply text-sm;
+}
+
+@screen md {
+	.madeBy :global(p) {
+		width: auto;
+		@apply pb-0;
+	}
+}
+
+.elements {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	@apply -my-4;
+}
+
+@screen lg {
+	.elements {
+		flex-direction: row;
+	}
+}
+
+.el {
+	display: flex;
+	flex-direction: column;
+	@apply my-4;
+}
+
+@screen lg {
+	.el:last-of-type {
+		text-align: right;
+	}
+
+	.el:first-of-type {
+		text-align: left;
+	}
+}
+
+.el :global(p) {
+	@apply text-xl;
+	@apply font-title;
+	@apply font-bold;
+}
+
+.el :global(div) {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	@apply mt-2;
+}
+
+.el :global(a) {
+	@apply my-1;
+}
+
+.el :global(a):hover {
+	text-decoration: underline;
+}
