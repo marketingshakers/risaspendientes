@@ -3,6 +3,7 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	@apply mt-12;
+	@apply text-center;
 }
 
 .madeBy :global(p) {

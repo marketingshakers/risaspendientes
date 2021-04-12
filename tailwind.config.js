@@ -14,7 +14,7 @@ const fontFamily = {
     ...defaultTheme.fontFamily.sans,
   ],
   sans: [
-    'Poppins',
+    'Nunito',
     ...defaultTheme.fontFamily.sans,
   ],
   mono: [
