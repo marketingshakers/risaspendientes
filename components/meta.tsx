@@ -13,7 +13,7 @@ const Meta = () => (
       <link rel="icon" type="image/png" sizes="48x48" href="/favicons/favicon-48x48.png"/>
       <link rel="manifest" href="/favicons/manifest.json"/>
       <meta name="mobile-web-app-capable" content="yes"/>
-      <meta name="theme-color" content="#FFFFFF"/>
+      <meta name="theme-color" content="#23ABE2"/>
       <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png"/>
       <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png"/>
       <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png"/>

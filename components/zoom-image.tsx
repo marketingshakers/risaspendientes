@@ -26,12 +26,11 @@ export type ZoomImageProps = {
     pictureStyle?: React.CSSProperties
     /** Wheter the image wrapper should explicitely declare the width of the image or keep it fluid */
     explicitWidth?: boolean
-    zoomOptions?: ZoomOptions 
+    zoomOptions?: ZoomOptions
 }
 
 const ZoomImage = ({
   zoomOptions = {
-    background: 'rgba(10, 10, 10, 0.9)',
   },
   ...props
 }: ZoomImageProps) => {
