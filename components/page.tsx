@@ -29,6 +29,10 @@ const Page = ({ title, brandTitle, description, children, globalData, ...rest }:
         description={description || (globalData?.SEODescription || brand)}
       />
 
+      <style global jsx>
+        {` html { scroll-behavior: smooth; }`}
+      </style>
+
       <OgImage {...rest}/>
 
       <div className="flex flex-col min-h-screen w-full">
