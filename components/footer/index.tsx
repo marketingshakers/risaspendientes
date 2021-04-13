@@ -33,8 +33,12 @@ const Isolated = () => {
   return (
     <div className="flex flex-col -my-4 text-center mb-4 w-full justify-center items-center sm:flex-row sm:space-x-6">
       {isolated.map((n, idx) => (
-        <div className="font-bold font-title text-xl py-4">
-          <Link href={n.href} key={idx}>
+        <div
+          className="font-bold font-title text-xl py-4 animate"
+          style={setAnim({d: `${(idx + 1) * 100}ms`})}
+          key={idx}
+        >
+          <Link href={n.href}>
             <a className="hover:underline">{n.titulo}</a>
           </Link>
         </div>
