@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from 'react'
 import Link from 'next/link'
-import Hamburger from './hamburguer'
+import Burger from './burger'
 import Sidebar from './sidebar'
 import Dropdown from './dropdown'
 import s from './styles/navbar.module.css'
@@ -49,12 +49,12 @@ export default function Navbar() {
   })
 
   return (
-    <header className={`${s.header} duration-500 transform ${scrollY > 0 && 'blurred'} ${(!sidebar && !isShowing) && '-translate-y-full pointer-events-none'}`}>
+    <header className={`${s.header} duration-500 transform-gpu ${scrollY > 0 && 'blurred'} ${(!sidebar && !isShowing) && '-translate-y-full pointer-events-none'}`}>
       <Sidebar open={sidebar} toggle={toggleSidebar}/>
       <div className={`${s.headerWrapper} border-b ${ scrollY > 0 ? 'border-rp-gray-100' : 'border-transparent' }`}>
         <div className="flex overflow-hidden pointer-events-auto">
           <Link href="/">
-            <a title="Home" className="font-bold font-title transform text-2xl text-blue-800 duration-200 overflow-hidden hover:scale-95">
+            <a title="Home" className="overflow-hidden text-2xl font-bold text-blue-800 font-title transform duration-200 hover:scale-95">
               <div className="transform duration-200 logo hover:scale-95">
                 <img
                   src="/images/logo.png"
@@ -68,19 +68,21 @@ export default function Navbar() {
           </Link>
         </div>
         <div className={s.elements}>
-          <div className="transition-all duration-200 items-center hidden lg:flex">
+          <div className="items-center hidden transition-all duration-200 lg:flex">
             {nav(globalData).map((n, i) => n.childrens ? (
               <Fragment key={i}>
                 <Dropdown titulo={n.titulo} links={n.childrens}/>
               </Fragment>
             ) : (
               <Link href={n.href || '/'} key={i}>
-                <a className="border-transparent font-bold border-b-[3px] mx-4 -mt-[3px] duration-200 hover:border-rp-blue-500">{n.titulo}</a>
+                <a className="border-transparent font-bold border-b-[3px] mx-4 -mt-[3px] duration-200 hover:border-rp-blue-500">
+                  {n.titulo}
+                </a>
               </Link>
             ))}
           </div>
           <div className="lg:hidden">
-            <Hamburger open={sidebar} toggle={toggleSidebar}/>
+            <Burger open={sidebar} toggle={toggleSidebar}/>
           </div>
         </div>
       </div>
