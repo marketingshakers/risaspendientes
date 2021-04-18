@@ -22,7 +22,6 @@ const SeoTags = ({
       <meta property="og:title" content={title || brandTitle}/>
       <meta property="twitter:title" content={title || brandTitle}/>
       <meta name="application-name" content={brandTitle}/>
-      <meta name="apple-mobile-web-app-title" content={brandTitle}/>
 
       <meta name="description" content={description}/>
       <meta property="og:description" content={description}/>

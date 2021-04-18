@@ -1,4 +1,6 @@
-.content, .content-lg {
+@tailwind components;
+
+.c, .c-lg {
 	@apply px-6;
 	width: 100%;
 	margin-left: auto;
@@ -6,10 +8,10 @@
 }
 
 @screen lg {
-	.content {
+	.c {
 		width: 80%;
 	}
-	.content-lg {
+	.c-lg {
 		width: 90%;
 	}
 }
@@ -17,14 +19,14 @@
 .input {
 	@apply p-2;
 	@apply border-b;
-	@apply border-gray-400;
+	@apply border-x-gray-300;
 	@apply bg-transparent;
 }
 
 .input:focus {
 	outline: none;
-	@apply border-white;
-	@apply text-white;
+	@apply border-black;
+	@apply text-black;
 }
 
 .t-p {

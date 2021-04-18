@@ -3,7 +3,7 @@ import { useRef, useEffect } from 'react'
 import links from '@/lib/navigation'
 import Link from 'next/link'
 import s from './styles/sidebar.module.css'
-import {useGlobalDataContext} from '../page'
+import { useGlobalDataContext } from '@/components/page'
 
 interface ChildrenMenu {
   title?: string
@@ -29,12 +29,12 @@ const ParentLink = (link: {
     return (
       <div className={s.sidebarLink} onClick={() => setChildMenu(link)}>
         <p
-          className="flex items-center text-right cursor-pointer"
+          className="cursor-pointer flex text-right items-center"
           style={css}
         >
           {title}
           <span
-            className="mt-1 ml-2 cursor-pointer i jam:chevron-right"
+            className="cursor-pointer mt-1 ml-2 i jam:chevron-right"
           />
         </p>
       </div>

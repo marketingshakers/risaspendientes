@@ -7,7 +7,7 @@ type BuildSitemap = (items: any) => Promise<any>
 const pages = ['']
 
 const buildSitemap: BuildSitemap = (items) => {
-  const hostUrl = process.env.HOST_URL ? `https://${process.env.HOST_URL}` : "http://localhost:3000"
+  const hostUrl = process.env.HOST_URL ? `https://${process.env.HOST_URL}` : 'http://localhost:3000'
   const sitemap = new SitemapStream({
     hostname: hostUrl,
   })
@@ -30,7 +30,7 @@ const buildSitemap: BuildSitemap = (items) => {
 
   sitemap.end();
 
-  return streamToPromise(sitemap);
+  return streamToPromise(sitemap)
 }
 
 const DATA_QUERY = `
@@ -42,19 +42,19 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   if (context && context.res) {
     const { res } = context
 
-    const data = await request({ query: DATA_QUERY });
+    // const data = await request({ query: DATA_QUERY })
 
-    const sitemap = await buildSitemap(data);
+    const sitemap = await buildSitemap({})
 
-    res.setHeader('content-type', 'text/xml');
-    res.write(sitemap.toString());
-    res.end();
+    res.setHeader('content-type', 'text/xml')
+    res.write(sitemap.toString())
+    res.end()
   }
 
   return {
     props: {},
-  };
-};
+  }
+}
 
 const SitemapPage = () => null
 

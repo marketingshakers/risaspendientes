@@ -46,7 +46,7 @@
 	background-color: white;
 	@apply rounded-xl;
 	@apply origin-top-right;
-	@apply border-rp-gray-500;
+	@apply border-x-gray-500;
 }
 
 .wrapper {

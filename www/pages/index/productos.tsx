@@ -12,7 +12,7 @@ const Caracteristica = (c: Specification) => (
       className="flex p-[8px]"
     >
       <div
-        className="bg-rp-yellow-500 rounded-[50%] h-[64px] p-[12px] text-rp-blue-500 w-[64px] icon"
+        className="bg-x-yellow-500 rounded-[50%] h-[64px] p-[12px] text-x-blue-500 w-[64px] icon"
         dangerouslySetInnerHTML={{ __html: c.icon }}
       />
       <style jsx>{`
@@ -23,41 +23,44 @@ const Caracteristica = (c: Specification) => (
       `}</style>
     </div>
     <div
-      className="p-[8px] text-rp-gray-500"
+      className="p-[8px] text-x-gray-500"
       dangerouslySetInnerHTML={{ __html: c.text }}
     />
   </div>
 )
 
 const DispositivoCard = ({ reversed, ...d }: Dispositivo & { reversed?: boolean }) => (
-  <div className="py-16">
+  <div className="bg-[#F8F9F9] rounded-3xl my-16 p-8 xxl:p-20 sm:rounded-[3rem] sm:p-12">
     <Viewport
-      className={`flex flex-col-reverse m-[-16px] ${reversed ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}
+      className={`flex flex-col-reverse m-[-16px] lg:items-center ${reversed ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}
       style={setAnim({ y: '0.5rem' })}
       oneWay
     >
       <div className="w-full p-[16px] lg:w-1/2">
-        <div className="bg-rp-gray-100 animate" style={setAnim({ x: reversed ? '0.5rem' : '-0.5rem' })}>
-          <ZoomImage data={{
-            ...d.image.responsiveImage,
-            alt: d.title,
-            title: d.title,
-          }} dataHd={d.imageHd.responsiveImage} />
+        <div className="bg-x-gray-100 rounded-3xl animate overflow-hidden" style={setAnim({ x: reversed ? '0.5rem' : '-0.5rem' })}>
+          <ZoomImage
+            data={{
+              ...d.image.responsiveImage,
+              alt: d.title,
+              title: d.title,
+            }}
+            dataHd={d.imageHd.responsiveImage}
+          />
         </div>
       </div>
       <div className="w-full p-[16px] lg:w-1/2">
         <h3
-          className="font-title font-bold animate text-rp-yellow-500 text-3xl sm:text-5xl"
+          className="font-title font-bold animate text-x-yellow-500 text-3xl sm:text-5xl"
         >
           {d.title}
         </h3>
         <div
-          className="font-title mt-2 animate text-rp-gray-500 lg:w-5/8"
+          className="font-title mt-2 animate text-x-gray-500 lg:w-5/8"
           style={setAnim({ d: '100ms' })}
           dangerouslySetInnerHTML={{ __html: d.description }}
         />
         <div className="mt-8 w-full">
-          <div className="grid gap-[16px] grid-cols-1 lg:grid-flow-col lg:grid-rows-3 lg:grid-cols-2">
+          <div className={`grid gap-[16px] grid-cols-1 lg:grid-flow-col ${d.compact ? 'lg:grid-rows-2' : 'lg:grid-rows-3'}  lg:grid-cols-2`}>
             {d.specifications.map((s, idx) => (
               <div className="animate" style={setAnim({ d: `${100 * (idx + 1)}ms` })} key={idx}>
                 <Caracteristica {...s} />
@@ -71,14 +74,14 @@ const DispositivoCard = ({ reversed, ...d }: Dispositivo & { reversed?: boolean 
 )
 
 const Productos = (data: ProductosProps) => (
-  <div className="py-24 content-lg" id="dispositivos">
+  <div className="pt-24 c-lg" id="dispositivos">
     <Viewport
       className="animate"
       style={setAnim({ y: '0.5rem' })}
       oneWay
     >
       <h2
-        className="font-title font-bold text-rp-blue-500 text-3xl sm:text-5xl"
+        className="font-title font-bold text-x-blue-500 text-3xl sm:text-5xl"
       >
         Una risa a la vez
       </h2>

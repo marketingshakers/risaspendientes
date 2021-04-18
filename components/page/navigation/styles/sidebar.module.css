@@ -22,7 +22,7 @@
 	height: 100%;
 	padding: 6rem 2rem 0;
 	text-align: right;
-	@apply text-rp-gray-500;
+	@apply text-x-gray-500;
 }
 
 @screen lg {
@@ -84,7 +84,7 @@
 }
 
 .sidebarLink:hover, .childLink:hover {
-	@apply border-rp-gray-500;
+	@apply border-x-gray-500;
 }
 
 .backButton {

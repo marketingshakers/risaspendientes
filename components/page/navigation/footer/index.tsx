@@ -2,8 +2,8 @@ import Link from 'next/link'
 import navs from '@/lib/navigation'
 import styles from './footer.module.css'
 import { Fragment } from 'react'
-import {useGlobalDataContext} from '../page'
-import Viewport, {setAnim} from '../viewport'
+import { useGlobalDataContext } from '@/components/page'
+import Viewport, { setAnim } from '@/components/viewport'
 
 const MadeBy = () => (
   <div className={styles['madeBy']}>
@@ -70,7 +70,7 @@ const Elements = () => (
 
 const Footer = () => (
   <footer
-    className="bg-rp-blue-500 text-white py-16"
+    className="bg-x-blue-500 text-white py-16"
   >
     <Viewport
       className="animate content-lg"

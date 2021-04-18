@@ -24,7 +24,7 @@ const fontFamily = {
 }
 
 const colors = {
-  'rp-gray': {
+  'x-gray': {
     50: '#F7F7F7',
     100: '#EFEFEF',
     200: '#D7D7D7',
@@ -36,7 +36,7 @@ const colors = {
     800: '#2B2B2B',
     900: '#1D1D1D',
   },
-  'rp-blue': {
+  'x-blue': {
     default: '#22ACE2',
     '100': '#D6F0FA',
     '200': '#A9DFF4',
@@ -48,7 +48,7 @@ const colors = {
     '800': '#0C475F',
     '900': '#062532'
   },
-  'rp-yellow': {
+  'x-yellow': {
     default: '#F6EE55',
     '100': '#FCFACA',
     '200': '#FBF7AD',

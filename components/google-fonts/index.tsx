@@ -1,22 +1,33 @@
-import * as React from "react"
-import Head from "next/head"
+import { FC, useRef, useState, useEffect } from 'react'
+import Head from 'next/head'
 
 export interface IGoogleFontsProps {
   /**
-   * URL to your Google Fonts StyleSheet.
-   *
-   * Be sure to end with `&display=swap` for best performance.
+   * URLs to your Google Fonts StyleSheet.
    */
-  href: string
+  families: string[]
+  /**
+   * Set to `swap` for append `&display=swap` for best performance.
+   */
+  display?: 'swap' | string
 }
 
 let hydrated = false
 
-export const GoogleFonts: React.FC<IGoogleFontsProps> = ({ href }) => {
-  const hydratedRef = React.useRef(false)
-  const [, rerender] = React.useState(false)
+export const GoogleFonts: FC<IGoogleFontsProps> = ({
+  families,
+  display
+}) => {
+  const hydratedRef = useRef(false)
+  const [, rerender] = useState(false)
 
-  React.useEffect(() => {
+  const href = `https://fonts.googleapis.com/css2?${
+    families.map((f) => `family=${f}`).join('&')
+  }${
+    display ? `&display=${display}` : ''
+  }`
+
+  useEffect(() => {
     if (!hydratedRef.current) {
       hydrated = true
       hydratedRef.current = true

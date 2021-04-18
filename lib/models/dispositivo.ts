@@ -10,5 +10,6 @@ export interface Dispositivo {
   description?: string
   image?: ResponsiveImage
   imageHd?: ResponsiveImage
+  compact?: boolean
   specifications?: Specification[]
 }

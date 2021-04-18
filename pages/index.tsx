@@ -9,7 +9,6 @@ query HomeQuery {
     image {
       ${responsiveImageHelper({
         w: 500,
-        h: 500,
         fit: 'crop',
         q: 70,
       })}
@@ -17,6 +16,7 @@ query HomeQuery {
     imageHd: image {
       ${responsiveImageHelper()}
     }
+    compact
     specifications {
       icon
       text
