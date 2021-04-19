@@ -7,7 +7,11 @@ import s from './styles/navbar.module.css'
 import nav from '@/lib/navigation'
 import { useGlobalDataContext } from '@/components/page'
 
-export default function Navbar() {
+export interface NavbarProps {
+  altLogo?: boolean
+}
+
+export default function Navbar({ altLogo = false }: NavbarProps) {
   const [sidebar, setSidebar] = useState(false)
   const [scrollY, setScrollY] = useState<number>(null)
   const toggleSidebar = () => (setSidebar(!sidebar))
@@ -50,13 +54,13 @@ export default function Navbar() {
   return (
     <header className={`${s.header} duration-500 transform-gpu ${scrollY > 0 && 'blurred'} ${(!sidebar && !isShowing) && '-translate-y-full pointer-events-none'}`}>
       <Sidebar open={sidebar} toggle={toggleSidebar}/>
-      <div className={`${s.headerWrapper} border-b ${ scrollY > 0 ? 'border-x-gray-100' : 'border-transparent' }`}>
+      <div className={`${s.headerWrapper} border-b ${ scrollY > 0 ? 'border-x-gray-200' : 'border-transparent' }`}>
         <div className="flex overflow-hidden pointer-events-auto">
           <Link href="/">
             <a title="Home" className="font-bold font-title transform text-2xl text-blue-800 duration-200 overflow-hidden hover:scale-95">
               <div className="transform duration-200 logo hover:scale-95">
                 <img
-                  src="/images/logo.png"
+                  src={`/images/logo.${altLogo ? 'png' : 'svg'}`}
                   alt="Home"
                   className="h-12"
                   title="Inicio"
@@ -69,9 +73,7 @@ export default function Navbar() {
         <div className={s.elements}>
           <div className="transition-all duration-200 items-center hidden lg:flex">
             {nav(globalData).map((n, i) => n.childrens ? (
-              <Fragment key={i}>
-                <Dropdown titulo={n.titulo} links={n.childrens}/>
-              </Fragment>
+              <Dropdown titulo={n.titulo} links={n.childrens} key={i} />
             ) : (
               <Link href={n.href || '/'} key={i}>
                 <a className="border-transparent font-bold border-b-[3px] mx-4 -mt-[3px] duration-200 hover:border-x-blue-500">

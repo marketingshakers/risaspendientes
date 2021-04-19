@@ -49,3 +49,22 @@
 .t-h3 {
 	font-size: 1.33rem;
 }
+
+.card {
+	background-color: #F8F9F9;
+	@apply rounded-3xl;
+	@apply p-8; 
+}
+
+@screen sm {
+	.card {
+		@apply rounded-[3rem];
+		@apply p-12;
+	}
+}
+
+@screen xxl {
+	.card {
+		@apply rounded-3xl;
+	}
+}

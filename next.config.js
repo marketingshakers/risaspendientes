@@ -6,6 +6,7 @@ const nextConfig = {
   reactStrictMode: true,
   future: {
     webpack5: true,
+    strictPostcssConfiguration: true,
   },
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {

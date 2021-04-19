@@ -1,11 +1,11 @@
-import { ResponsiveImage } from './cms'
+import { CMSType, ResponsiveImage } from './cms'
 
 export type Specification = {
   icon?: string
   text?: string
 }
 
-export interface Dispositivo {
+export interface Dispositivo extends CMSType {
   title?: string
   description?: string
   image?: ResponsiveImage

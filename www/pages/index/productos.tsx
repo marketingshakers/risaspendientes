@@ -30,14 +30,14 @@ const Caracteristica = (c: Specification) => (
 )
 
 const DispositivoCard = ({ reversed, ...d }: Dispositivo & { reversed?: boolean }) => (
-  <div className="bg-[#F8F9F9] rounded-3xl my-16 p-8 xxl:p-20 sm:rounded-[3rem] sm:p-12">
+  <div className="card">
     <Viewport
       className={`flex flex-col-reverse m-[-16px] lg:items-center ${reversed ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}
       style={setAnim({ y: '0.5rem' })}
       oneWay
     >
       <div className="w-full p-[16px] lg:w-1/2">
-        <div className="bg-x-gray-100 rounded-3xl animate overflow-hidden" style={setAnim({ x: reversed ? '0.5rem' : '-0.5rem' })}>
+        <div className="rounded-3xl animate overflow-hidden" style={setAnim({ x: reversed ? '0.5rem' : '-0.5rem' })}>
           <ZoomImage
             data={{
               ...d.image.responsiveImage,
@@ -81,14 +81,16 @@ const Productos = (data: ProductosProps) => (
       oneWay
     >
       <h2
-        className="font-title font-bold text-x-blue-500 text-3xl sm:text-5xl"
+        className="font-title font-bold mb-16 text-x-blue-500 text-3xl sm:text-5xl"
       >
         Una risa a la vez
       </h2>
     </Viewport>
-    {data.dispositivos.map((d, idx) => (
-      <DispositivoCard {...d} reversed={idx % 2 != 0} key={idx} />
-    ))}
+    <div className="flex flex-col space-y-24">
+      {data.dispositivos.map((d, idx) => (
+        <DispositivoCard {...d} reversed={idx % 2 != 0} key={idx} />
+      ))}
+    </div>
   </div>
 )
 

@@ -6,12 +6,13 @@ import SeoTags, { SeoTagsProps } from './seo-tags'
 import { useRouter } from 'next/router'
 import { GoogleFonts } from '@/components/google-fonts'
 import Favicons from './favicons'
+import { NavbarProps } from './navigation/navbar'
 
 export interface PageProps {
   globalData?: any
 }
 
-interface Props extends OgImageProps, SeoTagsProps, PageProps {
+interface Props extends OgImageProps, SeoTagsProps, PageProps, NavbarProps {
   children?: ReactNode
 }
 
@@ -27,7 +28,7 @@ const Page = ({
   children,
   globalData,
   ...rest
-}: PageProps & OgImageProps & SeoTagsProps & PageProps & {
+}: PageProps & OgImageProps & SeoTagsProps & PageProps & NavbarProps & {
   children?: ReactNode
 }) => {
   const { pathname } = useRouter()
@@ -56,7 +57,7 @@ const Page = ({
       </style>
 
       <div className="flex flex-col min-h-screen w-full">
-        <Navbar/>
+        <Navbar {...rest} />
         <main
           className="flex-grow w-full overflow-hidden"
           style={{ paddingTop: `${pathname != '/' ? 96 : 0}px` }}

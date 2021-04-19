@@ -8,7 +8,7 @@ type IndexProps = PageProps
   & ActividadesProps
 
 const Index = (data: IndexProps) => (
-  <Page {...data}>
+  <Page {...data} altLogo>
     <Hero />
     <Productos {...data} />
     <Actividades {...data} />
