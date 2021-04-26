@@ -22,14 +22,41 @@ query HomeQuery {
       text
     }
   }
+  actividades: actividadesSection {
+    actividadesImage {
+      ${responsiveImageHelper({
+        w: 500,
+        h: 500,
+        fit: 'crop',
+        q: 70,
+      })}
+    }
+    tituloTaller
+    textTaller
+    tituloConferencias
+    textConferencias
+    tituloAsesorias
+    textAsesorias
+  }
+  lesiones: lesionesSection {
+    titulo
+    descripcion
+    image {
+      ${responsiveImageHelper({
+        w: 500,
+        q: 80,
+      })}
+    }
+    banner
+  }
 }
 `
 
 export const getStaticProps = async () => {
-  const { dispositivos } = await request({ query })
+  const req = await request({ query })
   return {
     props: {
-      dispositivos,
+      ...req
     }
   }
 }

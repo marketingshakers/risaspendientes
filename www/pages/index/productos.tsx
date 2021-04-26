@@ -37,7 +37,9 @@ const DispositivoCard = ({ reversed, ...d }: Dispositivo & { reversed?: boolean 
       oneWay
     >
       <div className="w-full p-[16px] lg:w-1/2">
-        <div className="rounded-3xl animate overflow-hidden" style={setAnim({ x: reversed ? '0.5rem' : '-0.5rem' })}>
+        <div className="rounded-3xl animate overflow-hidden" style={setAnim({
+          x: reversed ? '0.5rem' : '-0.5rem',
+        })}>
           <ZoomImage
             data={{
               ...d.image.responsiveImage,

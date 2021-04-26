@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Burger from './burger'
 import Sidebar from './sidebar'
@@ -9,9 +9,10 @@ import { useGlobalDataContext } from '@/components/page'
 
 export interface NavbarProps {
   altLogo?: boolean
+  transparent?: boolean
 }
 
-export default function Navbar({ altLogo = false }: NavbarProps) {
+export default function Navbar({ altLogo = false, transparent = false }: NavbarProps) {
   const [sidebar, setSidebar] = useState(false)
   const [scrollY, setScrollY] = useState<number>(null)
   const toggleSidebar = () => (setSidebar(!sidebar))
@@ -52,7 +53,7 @@ export default function Navbar({ altLogo = false }: NavbarProps) {
   })
 
   return (
-    <header className={`${s.header} duration-500 transform-gpu ${scrollY > 0 && 'blurred'} ${(!sidebar && !isShowing) && '-translate-y-full pointer-events-none'}`}>
+    <header className={`${s.header} duration-500 transform-gpu ${scrollY <= 0 && transparent ? 'transparent' : ''} ${(!sidebar && !isShowing) && '-translate-y-full pointer-events-none'}`}>
       <Sidebar open={sidebar} toggle={toggleSidebar}/>
       <div className={`${s.headerWrapper} border-b ${ scrollY > 0 ? 'border-x-gray-200' : 'border-transparent' }`}>
         <div className="flex overflow-hidden pointer-events-auto">

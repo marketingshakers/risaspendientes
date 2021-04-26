@@ -57,7 +57,7 @@ const Page = ({
       </style>
 
       <div className="flex flex-col min-h-screen w-full">
-        <Navbar {...rest} />
+        <Navbar {...rest} transparent={pathname == '/'} />
         <main
           className="flex-grow w-full overflow-hidden"
           style={{ paddingTop: `${pathname != '/' ? 96 : 0}px` }}

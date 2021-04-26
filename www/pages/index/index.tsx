@@ -2,16 +2,20 @@ import Page, { PageProps } from '@/components/page'
 import Hero from './hero'
 import Productos, { ProductosProps } from './productos'
 import Actividades, { ActividadesProps } from './actividades'
+import Lesiones, { LesionesProps } from './lesiones'
 
-type IndexProps = PageProps
+type IndexProps = {
+  actividades?: ActividadesProps
+  lesiones?: LesionesProps
+} & PageProps
   & ProductosProps
-  & ActividadesProps
 
 const Index = (data: IndexProps) => (
   <Page {...data} altLogo>
     <Hero />
     <Productos {...data} />
-    <Actividades {...data} />
+    <Actividades {...data.actividades} />
+    <Lesiones {...data.lesiones} />
   </Page>
 )
 
