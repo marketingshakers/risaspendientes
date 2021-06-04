@@ -1,5 +1,5 @@
 import Viewport, { setAnim } from '@/components/viewport'
-import { ResponsiveImage } from '@/lib/models/cms'
+import { IResponsiveImage } from '@/lib/models/cms'
 import Logo from '@/public/images/logo.svg'
 import { Image } from 'react-datocms'
 
@@ -21,7 +21,7 @@ const Banner = ({ text }: { text?: string }) => (
 )
 
 const Section = ({ image, titulo, descripcion }: {
-  image?: ResponsiveImage
+  image?: IResponsiveImage
   titulo?: string
   descripcion?: string
 }) => (
@@ -50,7 +50,7 @@ const Section = ({ image, titulo, descripcion }: {
 )
 
 export interface LesionesProps {
-  image?: ResponsiveImage
+  image?: IResponsiveImage
   titulo?: string
   descripcion?: string
   banner?: string

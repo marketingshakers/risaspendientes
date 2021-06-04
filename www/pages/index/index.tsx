@@ -11,7 +11,7 @@ type IndexProps = {
   & ProductosProps
 
 const Index = (data: IndexProps) => (
-  <Page {...data} altLogo>
+  <Page {...data} altLogo padded={false}>
     <Hero />
     <Productos {...data} />
     <Actividades {...data.actividades} />

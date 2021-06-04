@@ -9,6 +9,7 @@ import Favicons from './favicons'
 import { NavbarProps } from './navigation/navbar'
 
 export interface PageProps {
+  padded?: boolean
   globalData?: any
 }
 
@@ -27,6 +28,7 @@ const Page = ({
   description,
   children,
   globalData,
+  padded = true,
   ...rest
 }: PageProps & OgImageProps & SeoTagsProps & PageProps & NavbarProps & {
   children?: ReactNode
@@ -57,10 +59,10 @@ const Page = ({
       </style>
 
       <div className="flex flex-col min-h-screen w-full">
-        <Navbar {...rest} transparent={pathname == '/'} />
+        <Navbar {...rest} transparent={!padded} />
         <main
           className="flex-grow w-full overflow-hidden"
-          style={{ paddingTop: `${pathname != '/' ? 96 : 0}px` }}
+          style={{ paddingTop: `${padded ? 96 : 0}px` }}
         >
           {children}
         </main>

@@ -22,7 +22,7 @@ const Hero = () => (
               Mejorando vidas una risa a la vez
             </p>
             <div className="pt-16 animate" style={setAnim({d: '400ms'})}>
-              <Link href="/inscripcion">
+              <Link href="/contacto">
                 <a
                   className="font-bold font-title bg-x-blue-500 rounded-2xl text-xl py-4 px-12 transform text-x-yellow-500 duration-200 hover:scale-95"
                 >
@@ -33,7 +33,7 @@ const Hero = () => (
         </V>
         </div>
         <V
-          className="flex mb-16 w-full animate justify-center sm:w-1/2 lg:mb-0 lg:justify-end"
+          className="flex mb-16 w-full animate justify-center lg:justify-end sm:w-1/2 lg:mb-0"
           style={setAnim({ x: '1rem', y: '1rem' })}
         >
           <Image

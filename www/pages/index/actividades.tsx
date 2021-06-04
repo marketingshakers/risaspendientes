@@ -2,7 +2,7 @@ import Viewport, { setAnim } from "@/components/viewport"
 import styles from './styles/actividades.module.css'
 import { Chart_3D32, GroupPresentation32, Idea32 } from '@carbon/icons-react'
 import Link from "next/link"
-import { ResponsiveImage } from "@/lib/models/cms"
+import { IResponsiveImage } from "@/lib/models/cms"
 import { Image } from "react-datocms"
 
 interface ActividadProps {
@@ -52,7 +52,7 @@ const Actividad = ({
 )
 
 export interface ActividadesProps {
-  actividadesImage?: ResponsiveImage
+  actividadesImage?: IResponsiveImage
   tituloTaller?: string
   textTaller?: string
   tituloConferencias?: string
@@ -86,7 +86,7 @@ const Actividades = (data: ActividadesProps) => (
               icon={<Chart_3D32 />}
               title={data.tituloTaller}
               description={data.textTaller}
-              href="/registro"
+              href="/contacto"
               buttonText="Apúntate ahora"
             />
             <Actividad
@@ -94,7 +94,7 @@ const Actividades = (data: ActividadesProps) => (
               icon={<GroupPresentation32 />}
               title={data.tituloConferencias}
               description={data.textConferencias}
-              href="/registro"
+              href="/contacto"
               buttonText="Más información"
               placeRight
             />
@@ -103,7 +103,7 @@ const Actividades = (data: ActividadesProps) => (
               icon={<Idea32 />}
               title={data.tituloAsesorias}
               description={data.textAsesorias}
-              href="/registro"
+              href="/contacto"
               buttonText="Más información"
             />
           </div>

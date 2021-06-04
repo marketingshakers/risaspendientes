@@ -1,11 +1,11 @@
 import Viewport, { setAnim } from "@/components/viewport"
-import { Vision } from "@/lib/models/vision"
+import { IVision } from "@/lib/models/vision"
 
 export interface VisionProps {
-  visiones?: Vision[] 
+  visiones?: IVision[] 
 }
 
-const VisionCard = ({ icon, text, idx }: Vision & { idx?: number }) => (
+const VisionCard = ({ icon, text, idx }: IVision & { idx?: number }) => (
   <div className="flex flex-col w-full">
     <div
       className="mx-auto animate text-x-blue-500 w-5/10 icon"

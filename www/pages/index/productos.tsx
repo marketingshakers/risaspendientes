@@ -1,9 +1,9 @@
 import Viewport, { setAnim } from "@/components/viewport"
 import ZoomImage from "@/components/zoom-image"
-import { Dispositivo, Specification } from "@/lib/models/dispositivo"
+import { IDispositivo, Specification } from "@/lib/models/dispositivo"
 
 export interface ProductosProps {
-  dispositivos: Dispositivo[]
+  dispositivos: IDispositivo[]
 }
 
 const Caracteristica = (c: Specification) => (
@@ -29,7 +29,7 @@ const Caracteristica = (c: Specification) => (
   </div>
 )
 
-const DispositivoCard = ({ reversed, ...d }: Dispositivo & { reversed?: boolean }) => (
+const DispositivoCard = ({ reversed, ...d }: IDispositivo & { reversed?: boolean }) => (
   <div className="card">
     <Viewport
       className={`flex flex-col-reverse m-[-16px] lg:items-center ${reversed ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}

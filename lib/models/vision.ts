@@ -1,6 +1,6 @@
-import { CMSType } from './cms'
+import { ICMSType } from './cms'
 
-export interface Vision extends CMSType {
+export interface IVision extends ICMSType {
   icon?: string
   text?: string
 }
