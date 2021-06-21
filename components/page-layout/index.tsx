@@ -3,7 +3,6 @@ import { Navbar, Footer } from './navigation'
 import { createContext } from 'react'
 import OgImage, { OgImageProps } from './og-image'
 import SeoTags, { SeoTagsProps } from './seo-tags'
-import { GoogleFonts } from '@/components/google-fonts'
 import Favicons from './favicons'
 import { NavbarProps } from './navigation/navbar'
 
@@ -32,14 +31,6 @@ const PageLayout = ({
 }: PageProps) => {
   return (
     <globalDataContext.Provider value={globalData}>
-      <GoogleFonts
-        families={[
-          'Nunito:wght@300;400;900',
-          'Work+Sans:wght@300;400;700;900',
-        ]}
-        display="swap"
-      />
-
       <SeoTags
         title={title}
         brandTitle={brandTitle || brand}
