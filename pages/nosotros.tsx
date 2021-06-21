@@ -1,5 +1,5 @@
-export { default,  } from '@/www/pages/nosotros'
-import { request, responsiveImageHelper } from '@/lib/datocms'
+export { default,  } from '@www/pages/nosotros'
+import { request } from '@/lib/datocms'
 
 const query =  `
 query NosotrosQuery {
@@ -19,6 +19,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       ...nosotros,
-    }
+    },
+    revalidate: 1,
   }
 }

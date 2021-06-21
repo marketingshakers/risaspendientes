@@ -1,4 +1,4 @@
-import Page, { PageProps } from '@/components/page'
+import PageLayout, { GetLayoutProps, PageProps } from '@/components/page-layout'
 import { IFormField } from '@/lib/models/form-field'
 import { useState } from 'react'
 import Viewport, { setAnim } from '@/components/viewport'
@@ -7,6 +7,12 @@ import Link from 'next/link'
 export type ContactProps = PageProps & {
   formFields?: IFormField[]
 }
+
+const getLayoutProps: GetLayoutProps = () => ({
+  title: 'Formulario de contacto',
+  padded: false,
+  altLogo: true,
+})
 
 const slugify = (...args: (string | number)[]): string => {
   const value = args.join(' ')
@@ -86,7 +92,7 @@ const Index = (data: ContactProps) => {
       })
   }
   return (
-    <Page {...data} title="Formulario de contacto" altLogo padded={false}>
+    <>
       <Viewport
         once
         style={{
@@ -143,8 +149,10 @@ const Index = (data: ContactProps) => {
           )}
         </div>
       </Viewport>
-    </Page>
+    </>
   )
 }
+
+Index.getLayoutProps = getLayoutProps
 
 export default Index

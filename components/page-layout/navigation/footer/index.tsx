@@ -2,7 +2,7 @@ import Link from 'next/link'
 import navs from '@/lib/navigation'
 import styles from './footer.module.css'
 import { Fragment } from 'react'
-import { useGlobalDataContext } from '@/components/page'
+import { useGlobalDataContext } from '@/components/page-layout'
 import Viewport, { setAnim } from '@/components/viewport'
 
 const MadeBy = () => (

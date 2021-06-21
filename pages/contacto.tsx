@@ -1,8 +1,8 @@
-import { getGlobalData, request } from '@/lib/datocms'
+import { request } from '@/lib/datocms'
 import { QFFormField } from '@/lib/models/form-field'
-import { ContactProps } from '@/www/pages/contacto'
+import { ContactProps } from '@www/pages/contacto'
 import { GetStaticProps } from 'next'
-export { default } from '@/www/pages/contacto'
+export { default } from '@www/pages/contacto'
 
 const query = `
 query ContactQuery {
@@ -20,6 +20,7 @@ export const getStaticProps: GetStaticProps<ContactProps> = async () => {
   return {
     props: {
       ...form,
-    }
+    },
+    revalidate: 1,
   }
 }

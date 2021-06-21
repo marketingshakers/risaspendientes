@@ -1,7 +1,11 @@
-import Page, { PageProps } from '@/components/page'
+import { GetLayoutProps, PageProps } from '@/components/page-layout'
 import Frase, { FraseProps } from './frase'
 import Mision, { MisionProps } from './mision'
 import Vision, { VisionProps } from './vision'
+
+const getLayoutProps: GetLayoutProps = () => ({
+  title: 'Nosotros',
+})
 
 type IndexProps = PageProps
   & FraseProps
@@ -9,11 +13,11 @@ type IndexProps = PageProps
   & VisionProps
 
 const Nosotros = (data: IndexProps) => (
-  <Page title="Nosotros" {...data}>
+  <>
     <Frase {...data} />
     <Mision {...data} />
     <Vision {...data} />
-  </Page>
+  </>
 )
 
 export default Nosotros

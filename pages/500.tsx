@@ -4,15 +4,15 @@ const getLayoutProps: GetLayoutProps = () => ({
   title: '404: Esta página no puede ser encontrada',
 })
 
-const Page404 = () => (
+const Page500 = () => (
   <div className="text-center w-full py-16">
     <h1 className="font-bold font-title mb-4 text-8xl text-blue-300">
-      404
+      500
     </h1>
-    <p>Esta página no puede ser encontrada</p>
+    <p>Ha ocurrido un error desconocido, necesitamos a un programador</p>
   </div>
 )
 
-Page404.getLayoutProps = getLayoutProps
+Page500.getLayoutProps = getLayoutProps
 
-export default Page404
+export default Page500

@@ -29,13 +29,14 @@ const Section = ({ image, titulo, descripcion }: {
     <div className="h-full w-full pt-40 pr-12 -z-10 absolute lg:pb-40">
       <div className="h-full w-full card" style={{ padding: '0' }} />
     </div>
-    <Viewport className="flex flex-wrap p-8 sm:p-12 lg:items-center" oneWay style={setAnim({y: '0.5rem'})}>
+    <Viewport className="flex flex-wrap p-8 lg:items-center sm:p-12" oneWay style={setAnim({y: '0.5rem'})}>
       <div className="w-full lg:pr-[32px] lg:w-1/2">
         <div className="rounded-xl animate overflow-hidden">
           <Image
             data={{
               ...image?.responsiveImage,
-              alt: 'Lesiones maxilofaciales'
+              alt: 'Lesiones maxilofaciales',
+              base64: null,
             }}
           />
         </div>

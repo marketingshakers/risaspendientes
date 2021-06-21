@@ -3,7 +3,7 @@ import { useRef, useEffect } from 'react'
 import links from '@/lib/navigation'
 import Link from 'next/link'
 import s from './styles/sidebar.module.css'
-import { useGlobalDataContext } from '@/components/page'
+import { useGlobalDataContext } from '@/components/page-layout'
 
 interface ChildrenMenu {
   title?: string

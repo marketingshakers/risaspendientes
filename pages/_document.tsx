@@ -7,6 +7,7 @@ class MyDocument extends Document {
       <Html lang='en'>
         <CriticalStyleHead />
         <body>
+          <script>0</script>
           <Main />
           <NextScript />
         </body>

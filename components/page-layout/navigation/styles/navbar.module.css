@@ -3,13 +3,22 @@
 	z-index: 10;
 	width: 100%;
 	height: 96px;
+	@apply duration-500;
+}
+
+.header::before {
+	transition: opacity 0.5s;
+	z-index: -1;
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
 	-webkit-backdrop-filter: saturate(200%) blur(8px);
 	backdrop-filter: saturate(200%) blur(10px);
 }
 
-.header:global(.transparent) {
-	-webkit-backdrop-filter: none;
-	backdrop-filter: none;
+:global(.transparent).header::before {
+	opacity: 0;
 }
 
 .headerWrapper {
@@ -19,7 +28,7 @@
 	padding: 0 1.5rem;
 	height: 100%;
 	@apply duration-200;
-	background-color: rgba(255, 255, 255, 0.8);
+	background-color: rgba(255, 255, 255, 0.9);
 }
 
 :global(.transparent) .headerWrapper {

@@ -1,4 +1,4 @@
-export { default,  } from '@/www/pages/index'
+export { default,  } from '@www/pages/index'
 import { request, responsiveImageHelper } from '@/lib/datocms'
 
 const query =  `
@@ -57,6 +57,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       ...req
-    }
+    },
+    revalidate: 1,
   }
 }
