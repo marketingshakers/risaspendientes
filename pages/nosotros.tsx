@@ -10,6 +10,9 @@ query NosotrosQuery {
       icon
       text
     }
+    logros {
+      description
+    }
   }
 }
 `
