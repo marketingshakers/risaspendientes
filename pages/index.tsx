@@ -49,6 +49,30 @@ query HomeQuery {
     }
     banner
   }
+  productos: allProductos(first: 3) {
+    slug
+    name
+    price
+    image {
+      ${responsiveImageHelper({
+        w: 500,
+        h: 500,
+        fit: 'crop',
+        q: 80,
+      })}
+    }
+  }
+  respSocial {
+    title
+    image {
+      ${responsiveImageHelper({
+        w: 500,
+        h: 500,
+        fit: 'crop',
+        q: 70,
+      })}
+    }
+  }
 }
 `
 

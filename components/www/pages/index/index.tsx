@@ -1,8 +1,11 @@
 import { GetLayoutProps, PageProps } from '@/components/page-layout'
 import Hero from './hero'
-import Productos, { ProductosProps } from './productos'
+import Dispositivos, { DispositivosProps } from './dispositivos'
 import Actividades, { ActividadesProps } from './actividades'
 import Lesiones, { LesionesProps } from './lesiones'
+import Productos, { ProductosProps } from './productos'
+import Banner, { BannerProps } from './banner'
+import { IProducto } from '@/lib/models/producto'
 
 const getLayoutProps: GetLayoutProps = () => ({
   altLogo: true,
@@ -12,15 +15,21 @@ const getLayoutProps: GetLayoutProps = () => ({
 type IndexProps = {
   actividades?: ActividadesProps
   lesiones?: LesionesProps
+  productos?: IProducto[]
+  respSocial?: ProductosProps
 } & PageProps
+  & DispositivosProps
   & ProductosProps
+  & BannerProps
 
 const Index = (data: IndexProps) => (
   <>
     <Hero />
-    <Productos {...data} />
+    <Dispositivos {...data} />
     <Actividades {...data.actividades} />
     <Lesiones {...data.lesiones} />
+    <Productos {...data.respSocial} productos={data.productos} />
+    <Banner {...data.lesiones} />
   </>
 )
 
