@@ -5,6 +5,7 @@ import { request, responsiveImageHelper } from "@/lib/datocms"
 import { GetStaticPaths } from "next"
 import { Image } from "react-datocms"
 import { Money32 } from '@carbon/icons-react'
+import Link from "next/link"
 
 const getLayoutProps: GetLayoutProps<IProducto> = ({ name }) => ({
   title: name,
@@ -21,16 +22,16 @@ const Producto = (props: IProducto) => (
       <h3
         className="font-title font-bold animate text-x-yellow-500 text-3xl sm:text-5xl"
       >
-        Nuestros productos
+        Chequea nuestros productos
       </h3>
     </Viewport>
     <Viewport className="mt-8 relative c-lg" oneWay style={setAnim({ y: '0.5rem' })}>
-      <div className="h-full w-full py-24 -z-10 absolute">
+      <div className="h-full w-full pr-12 -z-10 absolute lg:py-24 lg:pr-0">
         <div className="h-full w-full card" style={{ padding: '0' }} />
       </div>
       <div className="p-8 sm:p-12">
-        <div className="flex flex-wrap w-full items-center lg:-mx-6">
-          <div className="w-full animate lg:px-6 lg:w-1/2">
+        <div className="flex flex-wrap w-full items-center">
+          <div className="w-full animate lg:pr-6 lg:w-1/2">
             <Image
               data={{
                 ...props.image?.responsiveImage,
@@ -39,7 +40,7 @@ const Producto = (props: IProducto) => (
               className="border rounded-3xl shadow-xl"
             />
           </div>
-          <div className="mt-12 w-full lg:mt-0 lg:px-6 lg:w-1/2">
+          <div className="mt-12 w-full lg:mt-0 lg:pl-6 lg:w-1/2">
             <h2
               className="font-title font-bold mb-6 animate text-x-blue-500 text-3xl sm:text-5xl"
               style={setAnim({ d: '200ms' })}
@@ -55,6 +56,11 @@ const Producto = (props: IProducto) => (
               <div className="flex animate items-center" style={setAnim({ d: '400ms' })}>
                 <Money32 className="mr-4 text-x-gray-500" />
                 <p className="font-bold text-x-gray-500 text-2xl uppercase">Valor: ${props.price}</p>
+              </div>
+              <div className="animate" style={setAnim({ d: '500ms' })}>
+                <Link href="/contacto">
+                  <a className="rounded-lg font-bold bg-x-blue-500 text-white py-2 px-4 text-2xl">¡Lo quiero!</a>
+                </Link>
               </div>
             </div>
           </div>
