@@ -1,58 +1,12 @@
 import Viewport, { setAnim } from "@/components/viewport"
-import styles from './styles/actividades.module.css'
-import Link from "next/link"
 import { IResponsiveImage } from "@/lib/models/cms"
-import ZoomImage from "@/components/zoom-image"
 import { IProducto } from "@/lib/models/producto"
-import { Money16 } from '@carbon/icons-react'
-
-interface ProductoCardProps extends IProducto {
-  idx?: number
-  placeLeft?: boolean
-}
-
-const ProductoCard = ({
-  idx,
-  name,
-  slug,
-  image,
-  price,
-  placeLeft,
-}: ProductoCardProps) => (
-  <div
-    className={`animate bg-white border rounded-3xl shadow-xl p-2`}
-    style={setAnim({ d: `${idx * 100}ms` })}
-  >
-    <div className="p-[8px]">
-      <ZoomImage
-        data={{
-          ...image?.responsiveImage,
-          alt: name,
-        }}
-        className="rounded-3xl mb-6 w-full"
-      />
-      <h3
-        className="font-title font-bold text-xl text-x-blue-500 leading-6 uppercase"
-      >
-        {name}
-      </h3>
-      <div className="flex mt-2 items-center">
-        <Money16 className="mr-2" />
-        <p className="text-lg text-x-gray-500">${price}</p>
-      </div>
-      <div className="flex w-full">
-        <Link href={`/productos/${slug}`}>
-          <a className="font-title font-bold ml-auto text-lg text-x-blue-500 hover:underline">Ver producto</a>
-        </Link>
-      </div>
-    </div>
-  </div>
-)
+import { ProductoCard } from "@/components/producto/producto-card"
 
 export interface ProductosProps {
   title?: string
   image?: IResponsiveImage
-  productos?: ProductoCardProps[]
+  productos?: IProducto[]
 }
 
 const Productos = (data: ProductosProps) => (
@@ -80,7 +34,7 @@ const Productos = (data: ProductosProps) => (
                 {...p}
                 key={idx}
                 idx={idx}
-                placeLeft={idx % 2 == 0}
+                bordered
               />
             ))}
           </div>
