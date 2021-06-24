@@ -23,7 +23,7 @@ const ProductoCard = ({
     className={`animate bg-white border rounded-3xl shadow-xl p-2`}
     style={setAnim({ d: `${idx * 100}ms` })}
   >
-    <div className={`${styles.text} p-[8px]`}>
+    <div className="p-[8px]">
       <ZoomImage
         data={{
           ...image?.responsiveImage,

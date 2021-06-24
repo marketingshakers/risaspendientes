@@ -1,3 +1,9 @@
 .text {
   width: 100%;
 }
+
+@screen md {
+  .text {
+    width: 22rem;
+  }
+}
