@@ -25,7 +25,7 @@ query NosotrosQuery {
   homenaje {
     title
     image {
-      ${responsiveImageHelper({ w: 500, h: 650, fit: 'crop', q: 80 })}
+      ${responsiveImageHelper({ w: 500, h: 640, fit: 'crop', q: 80 })}
     }
     description
   }
