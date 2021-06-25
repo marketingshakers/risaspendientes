@@ -3,6 +3,7 @@ import Frase, { FraseProps } from './frase'
 import Logros, { LogroProps } from './logros'
 import Mision, { MisionProps } from './mision'
 import Members, { MembersProps } from './miembros'
+import Homenaje, { HomenajeProps } from './homenaje'
 import Vision, { VisionProps } from './vision'
 
 const getLayoutProps: GetLayoutProps = () => ({
@@ -15,6 +16,7 @@ type IndexProps = PageProps
   & VisionProps
   & MembersProps
   & {
+    homenaje?: HomenajeProps
     logros?: LogroProps[]
   }
 
@@ -24,6 +26,7 @@ const Nosotros = (data: IndexProps) => (
     <Mision {...data} />
     <Vision {...data} />
     <Members {...data} />
+    <Homenaje {...data} />
     <Logros {...data} />
   </>
 )

@@ -19,18 +19,26 @@ query NosotrosQuery {
     cargo
     description
     image {
-      ${responsiveImageHelper({ w: 500, h: 600, fit: 'crop' })}
+      ${responsiveImageHelper({ w: 500, h: 600, fit: 'crop', q: 60 })}
     }
+  }
+  homenaje {
+    title
+    image {
+      ${responsiveImageHelper({ w: 500, h: 650, fit: 'crop', q: 80 })}
+    }
+    description
   }
 }
 `
 
 export const getStaticProps = async () => {
-  const { nosotros, members } = await request({ query })
+  const { nosotros, members, homenaje } = await request({ query })
   return {
     props: {
       ...nosotros,
       members,
+      homenaje,
     },
     revalidate: 1,
   }
