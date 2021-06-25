@@ -86,7 +86,7 @@ const Actividades = (data: ActividadesProps) => (
               icon={<Chart_3D32 />}
               title={data.tituloTaller}
               description={data.textTaller}
-              href="/contacto"
+              href={`/contacto?razon-de-contacto=${'Necesito información acerca de los talleres de capacitación en impresión 3D'}`}
               buttonText="Apúntate ahora"
             />
             <Actividad
@@ -94,7 +94,7 @@ const Actividades = (data: ActividadesProps) => (
               icon={<GroupPresentation32 />}
               title={data.tituloConferencias}
               description={data.textConferencias}
-              href="/contacto"
+              href={`/contacto?razon-de-contacto=${'Necesito información acerca de las conferencias de impresión 3D'}`}
               buttonText="Más información"
               placeRight
             />
@@ -103,7 +103,7 @@ const Actividades = (data: ActividadesProps) => (
               icon={<Idea32 />}
               title={data.tituloAsesorias}
               description={data.textAsesorias}
-              href="/contacto"
+              href={`/contacto?razon-de-contacto=${'Necesito asesoría'}`}
               buttonText="Más información"
             />
           </div>

@@ -1,8 +1,9 @@
 import PageLayout, { GetLayoutProps, PageProps } from '@/components/page-layout'
 import { IFormField } from '@/lib/models/form-field'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Viewport, { setAnim } from '@/components/viewport'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 export type ContactProps = PageProps & {
   formFields?: IFormField[]
@@ -38,6 +39,7 @@ const renderField = (idx: number, field: IFormField, fields: IFormField[], handl
       className="w-full input"
       id={slugify(field.title)}
       placeholder={field.placeholder}
+      value={field?.value || ''}
       onChange={(e) => handleChange(fields, idx, e.target.value, handler)}
     />
   ),
@@ -48,7 +50,8 @@ const renderField = (idx: number, field: IFormField, fields: IFormField[], handl
       onChange={(e) => handleChange(fields, idx, e.target.value, handler)}
       rows={5}
       placeholder={field.placeholder}
-    >{field.value}</textarea>
+      value={field?.value || ''}
+    />
   ),
 }[field.fieldType.type])
 
@@ -56,6 +59,18 @@ const Index = (data: ContactProps) => {
   const [fields, setFieldValues] = useState({ forms: data.formFields })
   const [loading, setLoading] = useState(false)
   const [sended, setSended] = useState(false)
+  const { query } = useRouter()
+  useEffect(() => {
+    Object.entries(query).forEach(([key, val]) => {
+      const idx = fields.forms.findIndex((f) => slugify(f.title) === key)
+      if (idx != -1) {
+        const fieldsClone = [...fields.forms]
+        fieldsClone[idx].value = val as string
+        console.log(fieldsClone)
+        setFieldValues({ forms: fieldsClone })
+      }
+    })
+  }, [query])
   const send = async () => {
     if (loading) {
       return

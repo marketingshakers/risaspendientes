@@ -58,7 +58,7 @@ const Producto = (props: IProducto) => (
                 <p className="font-bold text-x-gray-500 text-2xl uppercase">Valor: ${props.price}</p>
               </div>
               <div className="pt-8 animate sm:mt-0" style={setAnim({ d: '500ms' })}>
-                <Link href="/contacto">
+                <Link href={`/contacto?razon-de-contacto=${'Quiero un coleccionable'}&mensaje=Estoy interesado en el ${props.name}`}>
                   <a className="rounded-lg font-bold bg-x-blue-500 text-white py-2 px-4 text-2xl sm:mt-0">¡Lo quiero!</a>
                 </Link>
               </div>
