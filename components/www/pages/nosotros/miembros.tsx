@@ -42,7 +42,7 @@ const Members = ({ members }: MembersProps) => (
         </p>
       </Viewport>
       <Viewport
-        className="mt-8 w-full grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+        className="mt-8 w-full grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
         style={setAnim({ y: '0.5rem' })}
         oneWay
       >
