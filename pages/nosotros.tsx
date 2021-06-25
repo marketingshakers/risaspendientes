@@ -1,5 +1,5 @@
 export { default,  } from '@www/pages/nosotros'
-import { request } from '@/lib/datocms'
+import { request, responsiveImageHelper } from '@/lib/datocms'
 
 const query =  `
 query NosotrosQuery {
@@ -14,14 +14,23 @@ query NosotrosQuery {
       description
     }
   }
+  members: allIntegrantes {
+    name
+    cargo
+    description
+    image {
+      ${responsiveImageHelper({ w: 500, h: 600, fit: 'crop' })}
+    }
+  }
 }
 `
 
 export const getStaticProps = async () => {
-  const { nosotros } = await request({ query })
+  const { nosotros, members } = await request({ query })
   return {
     props: {
       ...nosotros,
+      members,
     },
     revalidate: 1,
   }
