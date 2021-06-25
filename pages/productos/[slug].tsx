@@ -52,14 +52,14 @@ const Producto = (props: IProducto) => (
               style={setAnim({ d: '300ms' })}
               dangerouslySetInnerHTML={{ __html: props.description }}
             />
-            <div className="flex mt-8 w-full justify-between">
+            <div className="flex flex-col mt-8 w-full sm:flex-row sm:justify-between">
               <div className="flex animate items-center" style={setAnim({ d: '400ms' })}>
                 <Money32 className="mr-4 text-x-gray-500" />
                 <p className="font-bold text-x-gray-500 text-2xl uppercase">Valor: ${props.price}</p>
               </div>
-              <div className="animate" style={setAnim({ d: '500ms' })}>
+              <div className="pt-8 animate sm:mt-0" style={setAnim({ d: '500ms' })}>
                 <Link href="/contacto">
-                  <a className="rounded-lg font-bold bg-x-blue-500 text-white py-2 px-4 text-2xl">¡Lo quiero!</a>
+                  <a className="rounded-lg font-bold bg-x-blue-500 text-white py-2 px-4 text-2xl sm:mt-0">¡Lo quiero!</a>
                 </Link>
               </div>
             </div>
