@@ -18,8 +18,8 @@ const Miembro = ({ idx, ...props }: IMember & { idx?: number }) => (
       }}
       className="rounded-3xl"
     />
-    <p className="font-bold mt-6 text-sm text-x-yellow-500">{props.cargo}</p>
-    <h3 className="font-bold my-2 text-xl text-x-blue-500">{props.name}</h3>
+    <h3 className="font-bold mt-6 text-xl text-x-blue-500">{props.name}</h3>
+    <p className="font-bold my-2 text-sm text-x-yellow-500">{props.cargo}</p>
     <div
       className="w-full"
       dangerouslySetInnerHTML={{ __html: props.description }}
