@@ -4,6 +4,8 @@ import styles from './footer.module.css'
 import { Fragment } from 'react'
 import { useGlobalDataContext } from '@/components/page-layout'
 import Viewport, { setAnim } from '@/components/viewport'
+import Image from 'next/image'
+import Logo from '@/public/images/logo-contrast.svg'
 
 const MadeBy = () => (
   <div className={styles['madeBy']}>
@@ -78,10 +80,8 @@ const Footer = () => (
       oneWay
     >
       <div className="flex mb-12 w-full">
-        <img
-          src="/images/logo-contrast.svg"
+        <Logo
           className="mx-auto h-12"
-          alt="Risas Pendientes"
           title="Risas Pendientes"
         />
       </div>

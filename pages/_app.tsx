@@ -11,7 +11,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     return (Component as any).getLayoutProps
       ? (Component as any).getLayoutProps(pageProps)
       : (pageProps) => pageProps 
-  }, [(Component as any).getLayoutProps, pageProps])
+  }, [Component, (Component as any).getLayoutProps, pageProps])
   return (
     <PageLayout {...pageProps} {...layoutProps}>
       <Component {...pageProps} />

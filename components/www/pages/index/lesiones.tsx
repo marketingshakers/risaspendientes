@@ -1,6 +1,6 @@
 import Viewport, { setAnim } from '@/components/viewport'
 import { IResponsiveImage } from '@/lib/models/cms'
-import { Image } from 'react-datocms'
+import { Image as Img } from 'react-datocms'
 
 export interface LesionesProps {
   image?: IResponsiveImage
@@ -17,7 +17,7 @@ const Lesiones = ({ image, titulo, descripcion }: LesionesProps) => (
     <Viewport className="flex flex-wrap p-8 lg:items-center sm:p-12" oneWay style={setAnim({y: '0.5rem'})}>
       <div className="w-full lg:pr-[32px] lg:w-1/2">
         <div className="rounded-xl animate overflow-hidden">
-          <Image
+          <Img
             data={{
               ...image?.responsiveImage,
               alt: 'Lesiones maxilofaciales',

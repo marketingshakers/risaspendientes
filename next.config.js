@@ -5,7 +5,6 @@ const { PHASE_PRODUCTION_BUILD, PHASE_PRODUCTION_SERVER } = require('next/consta
 const nextConfig = {
   reactStrictMode: true,
   future: {
-    webpack5: true,
     strictPostcssConfiguration: true,
   },
   webpack: (config, { dev, isServer }) => {
@@ -18,7 +17,16 @@ const nextConfig = {
     }
     config.module.rules.push({
       test: /\.svg$/,
-      use: ['@svgr/webpack']
+      use: [{
+        loader: '@svgr/webpack',
+        options: {
+          svgoConfig: {
+            plugins: {
+              removeViewBox: false
+            }
+          }
+        }
+      }]
     })
 
     return config
