@@ -1,19 +1,25 @@
 import { GetLayoutProps } from '@/components/page-layout'
+import { ProductoCard } from '@/components/producto/producto-card'
 import Viewport, { setAnim } from '@/components/viewport'
 import { request, responsiveImageHelper } from '@/lib/datocms'
 import { IProducto } from '@/lib/models/producto'
-import Image from '@/components/zoom-image'
 
-const getLayoutProps: GetLayoutProps<IProducto> = ({ name }) => ({
+const getLayoutProps: GetLayoutProps<ProductosProps> = () => ({
   title: 'Nuestros productos',
   padded: true,
 })
 
-const Producto = (props: IProducto) => (
+type ProductosProps = {
+  title?: string
+  description?: string
+  productos?: IProducto[]
+}
+
+const Producto = (props: ProductosProps) => (
   <div className="my-24">
     <div className="c-lg">
-      <Viewport className="flex flex-wrap m-[-32px] items-center" oneWay style={setAnim({ y: '0.5rem' })}>
-        <div className="w-full p-[32px] animate sm:w-1/2">
+      <Viewport className="flex flex-wrap-reverse m-[-32px] lg:flex-wrap items-center" oneWay style={setAnim({ y: '0.5rem' })}>
+        <div className="w-full p-[32px] animate lg:w-1/2">
           <img
             src="/images/logo.svg"
             alt="Nuestra misión"
@@ -21,25 +27,35 @@ const Producto = (props: IProducto) => (
             loading="lazy"
           />
         </div>
-        <div className="w-full p-[32px] sm:w-1/2">
+        <div className="w-full p-[32px] lg:w-1/2">
           <h2
             className="font-title font-bold animate text-5xl text-x-yellow-500"
             style={setAnim({ d: '100ms' })}
           >
-            Coleccionables “PenDientes”
+            {props.title}
           </h2>
-          <p
-            className="mt-6 animate"
+          <div
+            className="space-y-4 mt-6 animate"
             style={setAnim({ d: '200ms' })}
-          >
-            Estos traviesos y carismáticos dientes se caracterizan por tener personalidades muy marcadas, inspiradas en personajes del Dr. Seuss, quien es el escritor favorito de nuestro Co-Fundador y ángel Jonathan Battaglini.
-            A pesar de tener personalidades explosivas y distintas, todos guardan algo en común: contribuir a la lucha contra el cáncer bucal. ¿Cómo así? Todos los fondos provenientes de la venta de los PenDientes, se destinarán a pacientes con cáncer bucal que no puedan acceder a un tratamiento digno.
-          </p>
+            dangerouslySetInnerHTML={{ __html: props.description }}
+          />
         </div>
       </Viewport>
     </div>
-    <Viewport className="mt-8 relative c-lg" oneWay style={setAnim({ y: '0.5rem' })}>
-    </Viewport>
+    <div className="mt-12 relative c-lg" style={setAnim({ y: '0.5rem' })}>
+      <div className="flex flex-col w-full lg:flex-row-reverse lg:items-center">
+        <div className="w-full grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {props.productos?.map((p, idx) => (
+            <Viewport className="animate" style={setAnim({ y: '0.5rem' })} oneWay key={idx}>
+              <ProductoCard
+                {...p}
+                bordered
+              />
+            </Viewport>
+          ))}
+        </div>
+      </div>
+    </div>
   </div>
 )
 
@@ -48,8 +64,12 @@ Producto.getLayoutProps = getLayoutProps
 export default Producto
 
 const query = `
-query ProductoQuery($slug: String) {
-  allProductos {
+query ProductoQuery {
+  productosPage {
+    title
+    description
+  }
+  productos: allProductos {
     image {
       ${responsiveImageHelper({ w: 500, h: 500, fit: 'crop' })}
     }
@@ -62,15 +82,13 @@ query ProductoQuery($slug: String) {
 `
 
 export const getStaticProps = async () => {
-  //const { slug } = params
-  //const { productos } = await request({
-  //  query, variables: {
-  //    slug
-  //  }
-  //})
+  const { productosPage, productos } = await request({
+    query
+  })
   return {
     props: {
-      // productos
+      ...productosPage,
+      productos,
     },
     revalidate: 1,
   }
